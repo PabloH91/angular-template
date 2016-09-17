@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/PabloH91/angular-template#readme",
   "devDependencies": {
+    "bower": "^1.7.9",
     "gulp": "^3.9.1"
   }
 }

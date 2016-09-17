@@ -1,0 +1,34 @@
+{
+  "name": "angular-template",
+  "description": "Basic template for 1.x angular js web apps.",
+  "main": "app.js",
+  "authors": [
+    "Pablo Hernandez"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "angular",
+    "angularjs",
+    "javascript",
+    "web",
+    "webapp",
+    "programming",
+    "gulp",
+    "npm",
+    "sass"
+  ],
+  "homepage": "https://github.com/PabloH91/angular-template",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "jquery": "^3.1.0",
+    "bootstrap": "^3.3.7"
+  }
+}
