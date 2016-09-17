@@ -1,0 +1,33 @@
+{
+  "name": "angular-template",
+  "version": "1.0.0",
+  "description": "Basic template for 1.x angular js web apps.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PabloH91/angular-template.git"
+  },
+  "keywords": [
+    "angular",
+    "angularjs",
+    "javascript",
+    "web",
+    "webapp",
+    "programming",
+    "gulp",
+    "npm",
+    "sass"
+  ],
+  "author": "Pablo Hernandez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PabloH91/angular-template/issues"
+  },
+  "homepage": "https://github.com/PabloH91/angular-template#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}

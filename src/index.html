@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="appName">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJs Webapp Template</title>
+</head>
+<body>
+    <custom-header></custom-header>
+
+    <div data-ng-view></div>
+
+    <custom-footer></custom-footer>
+
+    <!-- VENDOR SCRIPTS -->
+    <!-- <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script> -->
+
+    <!-- APP SCRIPTS -->
+    <script src="app/appName.js"></script>
+    <script src="app/routes.js"></script>
+    <!-- REPOSITORIES -->
+    <script src="app/shared/repositories/some.repository.js"></script>
+    <!-- SERVICES -->
+    <script src="app/shared/services/some.service.js"></script>
+    <!-- CONTROLLERS -->
+    <script src="app/modules/home/home.controller.js"></script>
+    <!-- DIRECTIVES -->
+    <script src="app/shared/directives/customFooter/customFooter.directive.js"></script>
+    <script src="app/shared/directives/customHeader/customHeader.directive.js"></script>
+</body>
+</html>
