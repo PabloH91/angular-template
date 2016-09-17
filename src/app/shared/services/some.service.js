@@ -19,7 +19,7 @@
         return service;
 
         function getSomeData() {
-            return someRepository.getSomeData().then(onSuccess, onError);
+            // return someRepository.getSomeData().then(onSuccess, onError);
 
             function onSuccess(response) {
                 serviceData.someData = response.data;

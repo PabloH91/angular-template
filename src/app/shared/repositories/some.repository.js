@@ -13,9 +13,9 @@
         return repo;
 
         function getSomeData() {
-            return $http({
-                method: 'GET'
-            });
+            // return $http({
+            //     method: 'GET'
+            // });
         }
     }
 }());
