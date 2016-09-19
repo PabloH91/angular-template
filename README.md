@@ -10,7 +10,7 @@ Default dependencies include: AngularJS, jQuery, Bootstrap and Gulp.
 4. Run ```bower install```. This creates the bower_components folder in the root level and installs the npm dependencies listed in bower.json.
 5. Look up all instances of "appName" within all files and replace with new app's real name.
 6. Run ```gulp watch:all```. This starts a new [BrowserSync](https://www.browsersync.io/) server with live reload after changes to sass, js or html files.
-_This also means you get to run in multiple windows at the same time!_
+_(This also means you get to perform actions and see them reflected in multiple windows at the same time! Great for multi-resolution/multi-browser testing!)_
 7. Run ```gulp production``` when you're ready for a production build. This will run the production task declared in gulpfile.js, which will create the dist folder.
 
 ## How the app structure works
