@@ -6,7 +6,7 @@
 
     function configFn($routeProvider) {
         $routeProvider
-            .when('/home', {
+            .when('/', {
                 templateUrl: ('app/modules/home/home.html'),
                 controller: 'home.controller',
                 controllerAs: 'homeCtrl'

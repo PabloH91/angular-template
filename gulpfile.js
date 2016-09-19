@@ -6,27 +6,24 @@ var gulp = require('gulp'),
     htmlmin = require('gulp-htmlmin'),
     imagemin = require('gulp-imagemin'),
     cleanCss = require('gulp-clean-css'),
+    runSequence = require('run-sequence'),
     sourcemaps = require('gulp-sourcemaps'),
+    browserSync = require('browser-sync').create(),
     del = require('del');
 var appName = 'appName';
 
 // GENERAL TASKS
-gulp.task('production', [
-    'clean:production',
-    'sass:production',
-    'js:production',
-    'html:production',
-    'img:production'
-]);
+gulp.task('production', function () {
+    'use strict';
+    runSequence('clean:production', ['sass:production', 'js:production', 'html:production', 'img:production']);
+});
 gulp.task('clean:production', function () {
     'use strict';
-
     return del(['dist/app', 'dist/assets/']);
 });
 gulp.task('img:production', function () {
     'use strict';
-
-    gulp.src('src/assets/img/*')
+    return gulp.src('src/assets/img/*')
         .pipe(imagemin())
         .pipe(gulp.dest('dist/assets/img'));
 });
@@ -34,8 +31,7 @@ gulp.task('img:production', function () {
 // HTML TASKS
 gulp.task('html:production', function () {
     'use strict';
-
-    gulp.src('src/app/**/*.html')
+    return gulp.src('src/app/**/*.html')
         .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest('dist/app'));
 });
@@ -44,8 +40,7 @@ gulp.task('html:production', function () {
 // Compiles sass into css, then concats into a single css file
 gulp.task('sass', function () {
     'use strict';
-
-    gulp.src('src/assets/scss/**/*.scss')
+    return gulp.src('src/assets/scss/**/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
         .pipe(concat('styles.css'))
@@ -55,8 +50,7 @@ gulp.task('sass', function () {
 // Runs sass task, then minifies single file to dist folder
 gulp.task('sass:production', ['sass'], function () {
     'use strict';
-
-    gulp.src('src/assets/css/styles.css')
+    return gulp.src('src/assets/css/styles.css')
         .pipe(cleanCss())
         .pipe(rename('styles.min.css'))
         .pipe(gulp.dest('dist/assets/css'));
@@ -65,8 +59,7 @@ gulp.task('sass:production', ['sass'], function () {
 // JAVASCRIPT TASKS
 gulp.task('js:production', function () {
     'use strict';
-
-    gulp.src('src/app/**/*.js')
+    return gulp.src('src/app/**/*.js')
         .pipe(sourcemaps.init())
         .pipe(concat(appName + '.min.js'))
         .pipe(uglify())
@@ -75,8 +68,28 @@ gulp.task('js:production', function () {
 
 // WATCHER TASKS
 // Watches changes in sass files to call sass task
-gulp.task('sass:watch', function () {
+gulp.task('watch:sass', ['sass'], function (done) {
     'use strict';
+    browserSync.reload();
+    done();
+});
+gulp.task('watch:js', function () {
+    'use strict';
+    browserSync.reload();
+});
+gulp.task('watch:html', function () {
+    'use strict';
+    browserSync.reload();
+});
+gulp.task('watch:all', function () {
+    'use strict';
+    browserSync.init({
+        server: {
+            baseDir: './'
+        }
+    });
 
-    gulp.watch('src/assets/scss/**/*.scss', ['sass']);
+    gulp.watch('src/assets/scss/**/*.scss', ['watch:sass']);
+    gulp.watch('src/app/**/*.js', ['watch:js']);
+    gulp.watch('**/*.html', ['watch:html']);
 });
